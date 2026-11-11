@@ -3,6 +3,8 @@
   const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
   const root = document.documentElement;
   const APP_URL = new URL("./", location.href).href;
+  /* PayPal.me-Name eintragen (Teil hinter paypal.me/). Leer = PayPal-Kachel ausgeblendet. */
+  const PAYPAL_ME = "";
 
   /* Sprache: gespeicherte Wahl > Gerätesprache */
   const T = {
@@ -43,6 +45,25 @@
       try { await navigator.share({ title: "Nicolas Friedrichs", text: t("shareText"), url: APP_URL }); } catch {}
     } else copy();
   });
+
+  /* Bezahlen per PayPal.me */
+  if (PAYPAL_ME) {
+    const pay = $("#pay"), amount = $("#amount");
+    $("#open-pay").hidden = false;
+    $("#open-pay").addEventListener("click", () => pay.showModal());
+    pay.addEventListener("click", e => { if (e.target === pay) pay.close(); });
+    $$(".amounts button").forEach(b => b.addEventListener("click", () => {
+      $$(".amounts button").forEach(x => x.setAttribute("aria-pressed", x === b));
+      amount.value = b.dataset.amount;
+    }));
+    amount.addEventListener("input", () => $$(".amounts button").forEach(x => x.setAttribute("aria-pressed", false)));
+    $("#pay-go").addEventListener("click", () => {
+      const v = parseFloat(amount.value.replace(",", "."));
+      const sum = v > 0 ? "/" + v.toFixed(2) + "EUR" : "";
+      window.open(`https://www.paypal.com/paypalme/${encodeURIComponent(PAYPAL_ME)}${sum}`, "_blank", "noopener");
+      pay.close();
+    });
+  }
 
   /* Installieren */
   const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;

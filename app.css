@@ -44,10 +44,10 @@ h1{font-family:var(--serif);font-weight:400;font-size:2.15rem;line-height:1.1;le
 main{padding:0 20px}
 
 /* Schnellaktionen */
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-38px;position:relative}
-.quick a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 4px 12px;background:var(--surface);border-radius:18px;
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-38px;position:relative}
+.quick a,.quick button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 4px 12px;background:var(--surface);border-radius:18px;
   box-shadow:0 10px 24px -14px rgba(14,58,50,.5);font-size:.74rem;font-weight:500;color:var(--ink);border:1px solid var(--line);transition:transform .15s}
-.quick a:active{transform:scale(.96)}
+.quick a:active,.quick button:active{transform:scale(.96)}
 .quick svg{width:24px;height:24px;stroke:var(--accent)}
 
 /* Buttons */
@@ -104,3 +104,10 @@ footer details p{margin-top:10px}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (prefers-color-scheme:dark){.seg button[aria-selected=true]{background:var(--champ);color:var(--green)}}
+.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.amounts button{padding:12px 0;border-radius:14px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+.amounts button[aria-pressed=true]{background:var(--green);color:var(--cream);border-color:var(--green)}
+.amount-in{display:flex;align-items:center;gap:8px;margin-top:10px;padding:0 18px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.amount-in input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:1.4rem;padding:12px 0;color:var(--ink);text-align:right;outline:none}
+.amount-in span{font-size:1.2rem;color:var(--muted)}
+.sheet-actions.one{grid-template-columns:1fr}
