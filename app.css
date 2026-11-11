@@ -1,0 +1,106 @@
+/* Nicolas Friedrichs · Digitale Visitenkarte · Farben und Schriften laut Styleguide */
+@font-face{font-family:"Playfair Display";src:url(assets/fonts/Playfair-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(assets/fonts/Playfair-Medium.ttf) format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:Inter;src:url(assets/fonts/Inter-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url(assets/fonts/Inter-Medium.ttf) format("truetype");font-weight:500;font-display:swap}
+
+:root{
+  --green:#0E3A32; --green-2:#0A2E27; --green-3:#1A4C42; --cream:#F7F4EE; --sand:#D9C9B4; --champ:#C6A86A;
+  --bg:var(--cream); --surface:#FFFFFF; --ink:#1F2624; --muted:#5B6863; --line:#E4DCCD; --accent:var(--green);
+  --serif:"Playfair Display",Georgia,serif; --sans:Inter,Arial,system-ui,sans-serif;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#07241F; --surface:#0E3A32; --ink:#F7F4EE; --muted:#B7C2BC; --line:#1F5046; --accent:var(--champ)}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+[hidden]{display:none!important}
+html[lang=de] [data-lang=en], html[lang=en] [data-lang=de]{display:none!important}
+svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--champ);outline-offset:3px}
+
+.app{max-width:460px;margin:0 auto;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+@media (min-width:600px){.app{margin:32px auto;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(14,58,50,.45);background:var(--bg)}
+  body{background:var(--sand)} @media (prefers-color-scheme:dark){body{background:#041815}}}
+
+/* Karte */
+.card{position:relative;overflow:hidden;background:var(--green);color:var(--cream);text-align:center;
+  padding:calc(18px + env(safe-area-inset-top)) 28px 64px;border-radius:0 0 28px 28px}
+.topbar{display:flex;justify-content:flex-end;margin-bottom:6px}
+.lang{font-size:.72rem;font-weight:500;letter-spacing:.14em;border:1px solid rgba(198,168,106,.6);color:var(--champ);border-radius:99px;padding:6px 12px}
+.mono{width:104px;height:auto;margin:6px auto 18px}
+h1{font-family:var(--serif);font-weight:400;font-size:2.15rem;line-height:1.1;letter-spacing:.01em}
+.rule{display:block;width:44px;height:1px;background:var(--champ);margin:16px auto}
+.role{font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--champ)}
+.sub{margin-top:8px;color:var(--sand);font-size:.95rem}
+.loc{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.85rem;color:rgba(247,244,238,.75)}
+.loc svg{width:15px;height:15px;stroke:var(--champ)}
+.fields{position:absolute;left:0;right:0;bottom:0;width:100%;height:70px;opacity:.9}
+
+main{padding:0 20px}
+
+/* Schnellaktionen */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-38px;position:relative}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 4px 12px;background:var(--surface);border-radius:18px;
+  box-shadow:0 10px 24px -14px rgba(14,58,50,.5);font-size:.74rem;font-weight:500;color:var(--ink);border:1px solid var(--line);transition:transform .15s}
+.quick a:active{transform:scale(.96)}
+.quick svg{width:24px;height:24px;stroke:var(--accent)}
+
+/* Buttons */
+.actions{display:grid;gap:10px;margin-top:22px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 20px;border-radius:16px;font-weight:500;font-size:1rem;transition:transform .15s,background .2s;width:100%}
+.btn:active{transform:scale(.98)}
+.btn svg{width:22px;height:22px}
+.btn-gold{background:var(--champ);color:var(--green)}
+.btn-line{border:1.5px solid var(--accent);color:var(--accent)}
+
+/* Blöcke */
+.block{margin-top:30px}
+.block h2{font-family:var(--serif);font-weight:400;font-size:1.35rem;color:var(--accent);margin-bottom:12px}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.docs a{display:flex;align-items:center;gap:12px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.docs b{display:block;font-weight:500;font-size:.9rem}
+.docs small{color:var(--muted);font-size:.78rem}
+.doc-ic{flex:none;display:grid;place-items:center;width:38px;height:46px;border-radius:6px;background:var(--green);color:var(--champ);font-size:.62rem;font-weight:500;letter-spacing:.1em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{padding:7px 12px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:.84rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stats div{padding:14px 16px;border-radius:16px;background:var(--green);color:var(--cream)}
+.stats dt{font-family:var(--serif);font-size:1.7rem;color:var(--champ);line-height:1.1}
+.stats dd{font-size:.82rem;color:var(--sand)}
+.install p{color:var(--muted);font-size:.92rem}
+.install .btn{margin-top:4px}
+
+footer{margin:34px 20px 0;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem;text-align:center}
+footer details{text-align:left;margin-bottom:12px}
+footer summary{cursor:pointer;text-align:center;list-style:none;text-decoration:underline;text-decoration-color:var(--champ);text-underline-offset:3px}
+footer summary::-webkit-details-marker{display:none}
+footer details p{margin-top:10px}
+
+/* Teilen-Dialog */
+.sheet{margin:auto auto 0;width:100%;max-width:460px;border:0;border-radius:28px 28px 0 0;background:var(--bg);color:var(--ink);padding:0}
+@media (min-width:600px){.sheet{margin:auto;border-radius:28px}}
+.sheet::backdrop{background:rgba(4,24,21,.6);backdrop-filter:blur(3px)}
+.sheet[open]{animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sheet-in{position:relative;padding:26px 22px calc(22px + env(safe-area-inset-bottom));text-align:center}
+.close{position:absolute;right:14px;top:10px;font-size:1.8rem;line-height:1;color:var(--muted);padding:6px 10px}
+.sheet h2{font-family:var(--serif);font-weight:400;font-size:1.45rem;color:var(--accent)}
+.seg{display:inline-grid;grid-template-columns:1fr 1fr;margin:16px 0;padding:4px;border-radius:99px;background:var(--surface);border:1px solid var(--line)}
+.seg button{padding:8px 16px;border-radius:99px;font-size:.85rem;font-weight:500;color:var(--muted)}
+.seg button[aria-selected=true]{background:var(--green);color:var(--cream)}
+.qr-box{background:#fff;border-radius:22px;padding:18px;width:min(78vw,300px);margin:0 auto;border:1px solid var(--line)}
+.qr-box img{width:100%;height:auto}
+.qr-note{margin:14px auto 0;max-width:300px;color:var(--muted);font-size:.88rem}
+.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.sheet-actions .btn{min-height:50px;font-size:.92rem}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:var(--green);color:var(--cream);padding:10px 18px;border-radius:99px;font-size:.88rem;transition:.25s;z-index:10}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-color-scheme:dark){.seg button[aria-selected=true]{background:var(--champ);color:var(--green)}}

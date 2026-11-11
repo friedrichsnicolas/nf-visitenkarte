@@ -1,0 +1,22 @@
+{
+  "name": "Nicolas Friedrichs · Visitenkarte",
+  "short_name": "N. Friedrichs",
+  "description": "Digitale Visitenkarte von Nicolas Friedrichs, Managing Consultant Procurement.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E3A32",
+  "theme_color": "#0E3A32",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Visitenkarte teilen", "url": "./#teilen", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Kontakt speichern", "url": "./downloads/Nicolas_Friedrichs.vcf" }
+  ]
+}
