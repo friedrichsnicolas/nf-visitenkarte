@@ -1,5 +1,5 @@
 /* Offline-Cache der digitalen Visitenkarte. Bei Änderungen VERSION erhöhen. */
-const VERSION = "nf-v3";
+const VERSION = "nf-v4";
 const FILES = [
   "./", "index.html", "app.css", "app.js", "manifest.webmanifest",
   "assets/fonts/Inter-Regular.ttf", "assets/fonts/Inter-Medium.ttf",

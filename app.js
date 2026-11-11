@@ -4,7 +4,7 @@
   const root = document.documentElement;
   const APP_URL = new URL("./", location.href).href;
   /* PayPal.me-Name eintragen (Teil hinter paypal.me/). Leer = PayPal-Kachel ausgeblendet. */
-  const PAYPAL_ME = "";
+  const PAYPAL_ME = "Nicolas.friedrichs";
 
   /* Sprache: gespeicherte Wahl > Gerätesprache */
   const T = {
