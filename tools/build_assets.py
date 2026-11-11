@@ -14,7 +14,6 @@ GREEN, CREAM, CHAMP = "#0E3A32", "#F7F4EE", "#C6A86A"
 VCARD = "\r\n".join([
     "BEGIN:VCARD", "VERSION:3.0",
     "N:Friedrichs;Nicolas;;;", "FN:Nicolas Friedrichs",
-    "TITLE:Managing Consultant Procurement",
     "TEL;TYPE=CELL:+491799218590",
     "EMAIL;TYPE=INTERNET:nicolas.friedrichs@hotmail.de",
     "ADR;TYPE=HOME:;;Beckershöfe 6;Willich;;47877;DE",
